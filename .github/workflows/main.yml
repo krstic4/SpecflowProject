@@ -1,0 +1,130 @@
+name: Test Automation
+
+on:
+  workflow_dispatch:
+    inputs:
+      testTag:
+        description: Select tests to run
+        default: all
+        type: choice
+        options:
+          - critical
+          - smoke
+          - all
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0'
+
+      - name: Restore .NET dependencies
+        run: dotnet restore
+
+      - name: Build .NET project
+        run: dotnet build --configuration Release
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: SpecflowProject/bin/Release/net6.0/**
+
+  test:
+    runs-on: windows-latest
+    needs: build  
+    steps:
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Playwright and browsers
+        run: |
+          npm install -g playwright
+          npx playwright install
+          
+      - name: Build .NET project for .ps1 file
+        run: dotnet build --configuration Release
+
+      - name: Install Playwright browsers via PowerShell
+        run: |
+          pwsh SpecflowProject/bin/Release/net6.0/playwright.ps1 install
+          
+      - name: Set Test Tag
+        id: setTag
+        shell: pwsh  # Specify the shell as PowerShell
+        run: |
+          if ($env:GITHUB_EVENT_NAME -eq "push") {
+            echo "testTag=all" >> $env:GITHUB_ENV
+          } else {
+            echo "testTag=${{ github.event.inputs.testTag }}" >> $env:GITHUB_ENV
+          }
+
+      - name: Run Automation tests
+        run: dotnet test --filter "TestCategory=${{ env.testTag }}" --logger "trx;LogFileName=TestResults.trx"
+        continue-on-error: true
+
+      - name: Retry if failed
+        if: failure()
+        run: dotnet test --filter "TestCategory=${{ env.testTag }}" --logger "trx;LogFileName=TestResults.trx"
+
+      - name: Upload Test Results Artifact
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: SpecflowProject/TestResults/*.trx
+
+  report:
+    runs-on: windows-latest
+    needs: test
+    if: always()
+    steps:
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+
+      - name: Download Test Results
+        uses: actions/download-artifact@v3
+        with:
+          name: test-results
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install Allure
+        run: npm install -g allure-commandline --save-dev
+
+      - name: Convert TRX to JUnit XML
+        run: |
+          dotnet tool install --global trx2junit
+          trx2junit D:\a\SpecflowProject\SpecflowProject\TestResults.trx --output D:\a\SpecflowProject\SpecflowProject\TestResults.xml
+
+      - name: Generate Allure Report
+        run: |
+          allure generate --clean -o allure-results D:\a\SpecflowProject\SpecflowProject\TestResults.xml
+
+      - name: Upload Allure Report as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: allure-results/**
