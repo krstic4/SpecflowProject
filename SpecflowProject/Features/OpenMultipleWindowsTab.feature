@@ -1,4 +1,5 @@
-﻿Feature: Open Multiple windows
+﻿@all
+Feature: Open Multiple windows
 
 This feature cover tests for Open Multiple windows tab
 

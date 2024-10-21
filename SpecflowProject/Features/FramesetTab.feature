@@ -1,4 +1,5 @@
-﻿Feature: Frameset functionality
+﻿@all
+Feature: Frameset functionality
 
 This feature cover tests for Frameset tab
 

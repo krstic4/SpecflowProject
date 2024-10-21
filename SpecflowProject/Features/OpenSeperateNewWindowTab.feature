@@ -1,4 +1,5 @@
-﻿Feature: Seperate New window functionality
+﻿@all
+Feature: Seperate New window functionality
 
 This feature cover tests for Open Seprate New Window tab
 

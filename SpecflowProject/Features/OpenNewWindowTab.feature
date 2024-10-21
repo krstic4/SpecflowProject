@@ -1,4 +1,5 @@
-﻿Feature: Open New window functionality
+﻿@all
+Feature: Open New window functionality
 
 This feature cover tests for Open New Window tab
 
