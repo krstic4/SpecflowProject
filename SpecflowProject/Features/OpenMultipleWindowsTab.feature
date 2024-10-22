@@ -13,26 +13,26 @@ Scenario: 1. Verify whole functionality of open multiple windows
 	Then I verify text from frame is equal to Open multiple pages
 	When I click on Open Multiple Pages in Frame
 	Then I verify new windows are opened
-	And I verify text in 1 window is Open Window-1
-	And I verify url in 1 window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window1.html
-	When I click in 1 window on Open Window-1
-	Then I verify text in 11 window is Open Window-1
-	And I verify url in 11 window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window1.html#
-	Then I close all window 1 opened
+	And I verify text in first opened instance window is Open Window-1
+	And I verify url in first opened instance window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window1.html
+	When I click in first opened instance window on Open Window-1
+	Then I verify text in second instance of first browser window is Open Window-1
+	And I verify url in second instance of first browser window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window1.html#
+	Then I close all window of first opened instance
 
-	And I verify text in 2 window is Open Window-2
-	And I verify url in 2 window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window2.html
-	When I click in 2 window on Open Window-2
-	Then I verify text in 22 window is Open Window-2
-	And I verify url in 22 window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window2.html#
-	Then I close all window 2 opened
+	And I verify text in second opened instance window is Open Window-2
+	And I verify url in second opened instance window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window2.html
+	When I click in second opened instance window on Open Window-2
+	Then I verify text in second instance of second browser window is Open Window-2
+	And I verify url in second instance of second browser window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window2.html#
+	Then I close all window of second opened instance
 
-	And I verify text in 3 window is Open Window-3
-	And I verify url in 3 window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window3.html
-	When I click in 3 window on Open Window-3
-	Then I verify text in 33 window is Open Window-3
-	And I verify url in 33 window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window3.html#
-	Then I close all window 33 opened
+	And I verify text in third opened instance window is Open Window-3
+	And I verify url in third opened instance window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window3.html
+	When I click in third opened instance window on Open Window-3
+	Then I verify text in second instance of third browser window is Open Window-3
+	And I verify url in second instance of third browser window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window3.html#
+	Then I close all window of second instance of third browser
 
 	When I close all opened windows
 	Then I verify home page is displayed
@@ -45,13 +45,12 @@ Scenario: 2. Verify window 2 functionality
 	Then I verify text from frame is equal to Open multiple pages
 	When I click on Open Multiple Pages in Frame
 	Then I verify new windows are opened
-	And I close all windows which are not 2
-	And I verify text in 2 window is Open Window-2
-	And I verify url in 2 window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window2.html
-	When I click in 2 window on Open Window-2
-	Then I verify new window 22 is opened
-	And I verify text in 22 window is Open Window-2
-	And I verify url in 22 window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window2.html#
+	And I close all windows which are not second opened instance
+	And I verify text in second opened instance window is Open Window-2
+	And I verify url in second opened instance window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window2.html
+	When I click in second opened instance window on Open Window-2
+	Then I verify text in second instance of second browser window is Open Window-2
+	And I verify url in second instance of second browser window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window2.html#
 	When I close all opened windows
 	Then I verify home page is displayed
 
@@ -63,13 +62,12 @@ Scenario: 3. Verify window 3 functionality
 	Then I verify text from frame is equal to Open multiple pages
 	When I click on Open Multiple Pages in Frame
 	Then I verify new windows are opened
-	And I close all windows which are not 3
-	And I verify text in 3 window is Open Window-3
-	And I verify url in 3 window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window3.html
-	When I click in 3 window on Open Window-3
-	Then I verify new window 33 is opened
-	And I verify text in 33 window is Open Window-3
-	And I verify url in 33 window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window3.html#
+	And I close all windows which are not third opened instance
+	And I verify text in third opened instance window is Open Window-3
+	And I verify url in third opened instance window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window3.html
+	When I click in third opened instance window on Open Window-3
+	Then I verify text in second instance of third browser window is Open Window-3
+	And I verify url in second instance of third browser window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window3.html#
 	When I close all opened windows
 	Then I verify home page is displayed
 
@@ -80,13 +78,12 @@ Scenario: 4. Verify window 1 functionality
 	Then I verify text from frame is equal to Open multiple pages
 	When I click on Open Multiple Pages in Frame
 	Then I verify new windows are opened
-	And I close all windows which are not 1
-	And I verify text in 1 window is Open Window-1
-	And I verify url in 1 window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window1.html
-	When I click in 1 window on Open Window-1
-	Then I verify new window 11 is opened
-	And I verify text in 11 window is Open Window-1
-	And I verify url in 11 window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window1.html#
+	And I close all windows which are not first opened instance
+	And I verify text in first opened instance window is Open Window-1
+	And I verify url in first opened instance window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window1.html
+	When I click in first opened instance window on Open Window-1
+	Then I verify text in second instance of first browser window is Open Window-1
+	And I verify url in second instance of first browser window is https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window1.html#
 	When I close all opened windows
 	Then I verify home page is displayed
 

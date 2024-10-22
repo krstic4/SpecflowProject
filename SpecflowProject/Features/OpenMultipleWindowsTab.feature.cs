@@ -122,64 +122,64 @@ this.FeatureBackground();
  testRunner.Then("I verify new windows are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 16
- testRunner.And("I verify text in 1 window is Open Window-1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify text in first opened instance window is Open Window-1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 17
- testRunner.And("I verify url in 1 window is https://www.way2automation.com/way2auto_jquery/frames" +
-                        "-windows/defult4-window1.html", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify url in first opened instance window is https://www.way2automation.com/wa" +
+                        "y2auto_jquery/frames-windows/defult4-window1.html", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 18
- testRunner.When("I click in 1 window on Open Window-1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click in first opened instance window on Open Window-1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 19
- testRunner.Then("I verify text in 11 window is Open Window-1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I verify text in second instance of first browser window is Open Window-1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 20
- testRunner.And("I verify url in 11 window is https://www.way2automation.com/way2auto_jquery/frame" +
-                        "s-windows/defult4-window1.html#", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify url in second instance of first browser window is https://www.way2automa" +
+                        "tion.com/way2auto_jquery/frames-windows/defult4-window1.html#", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
- testRunner.Then("I close all window 1 opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I close all window of first opened instance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 23
- testRunner.And("I verify text in 2 window is Open Window-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify text in second opened instance window is Open Window-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 24
- testRunner.And("I verify url in 2 window is https://www.way2automation.com/way2auto_jquery/frames" +
-                        "-windows/defult4-window2.html", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify url in second opened instance window is https://www.way2automation.com/w" +
+                        "ay2auto_jquery/frames-windows/defult4-window2.html", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 25
- testRunner.When("I click in 2 window on Open Window-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click in second opened instance window on Open Window-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 26
- testRunner.Then("I verify text in 22 window is Open Window-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I verify text in second instance of second browser window is Open Window-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 27
- testRunner.And("I verify url in 22 window is https://www.way2automation.com/way2auto_jquery/frame" +
-                        "s-windows/defult4-window2.html#", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify url in second instance of second browser window is https://www.way2autom" +
+                        "ation.com/way2auto_jquery/frames-windows/defult4-window2.html#", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 28
- testRunner.Then("I close all window 2 opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I close all window of second opened instance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 30
- testRunner.And("I verify text in 3 window is Open Window-3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify text in third opened instance window is Open Window-3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 31
- testRunner.And("I verify url in 3 window is https://www.way2automation.com/way2auto_jquery/frames" +
-                        "-windows/defult4-window3.html", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify url in third opened instance window is https://www.way2automation.com/wa" +
+                        "y2auto_jquery/frames-windows/defult4-window3.html", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 32
- testRunner.When("I click in 3 window on Open Window-3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click in third opened instance window on Open Window-3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 33
- testRunner.Then("I verify text in 33 window is Open Window-3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I verify text in second instance of third browser window is Open Window-3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 34
- testRunner.And("I verify url in 33 window is https://www.way2automation.com/way2auto_jquery/frame" +
-                        "s-windows/defult4-window3.html#", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify url in second instance of third browser window is https://www.way2automa" +
+                        "tion.com/way2auto_jquery/frames-windows/defult4-window3.html#", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 35
- testRunner.Then("I close all window 33 opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I close all window of second instance of third browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 37
  testRunner.When("I close all opened windows", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -229,32 +229,29 @@ this.FeatureBackground();
  testRunner.Then("I verify new windows are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 48
- testRunner.And("I close all windows which are not 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I close all windows which are not second opened instance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 49
- testRunner.And("I verify text in 2 window is Open Window-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify text in second opened instance window is Open Window-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 50
- testRunner.And("I verify url in 2 window is https://www.way2automation.com/way2auto_jquery/frames" +
-                        "-windows/defult4-window2.html", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify url in second opened instance window is https://www.way2automation.com/w" +
+                        "ay2auto_jquery/frames-windows/defult4-window2.html", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 51
- testRunner.When("I click in 2 window on Open Window-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click in second opened instance window on Open Window-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 52
- testRunner.Then("I verify new window 22 is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I verify text in second instance of second browser window is Open Window-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 53
- testRunner.And("I verify text in 22 window is Open Window-2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify url in second instance of second browser window is https://www.way2autom" +
+                        "ation.com/way2auto_jquery/frames-windows/defult4-window2.html#", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 54
- testRunner.And("I verify url in 22 window is https://www.way2automation.com/way2auto_jquery/frame" +
-                        "s-windows/defult4-window2.html#", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 55
  testRunner.When("I close all opened windows", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 56
+#line 55
  testRunner.Then("I verify home page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -270,7 +267,7 @@ this.FeatureBackground();
                     "smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3. Verify window 3 functionality", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 60
+#line 59
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -283,48 +280,45 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 61
+#line 60
  testRunner.When("I click on Open Multiple Windows tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 62
+#line 61
  testRunner.And("I get text from Open Multiple Windows frame", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 63
+#line 62
  testRunner.Then("I verify text from frame is equal to Open multiple pages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 64
+#line 63
  testRunner.When("I click on Open Multiple Pages in Frame", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 65
+#line 64
  testRunner.Then("I verify new windows are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 65
+ testRunner.And("I close all windows which are not third opened instance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
 #line 66
- testRunner.And("I close all windows which are not 3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify text in third opened instance window is Open Window-3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 67
- testRunner.And("I verify text in 3 window is Open Window-3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify url in third opened instance window is https://www.way2automation.com/wa" +
+                        "y2auto_jquery/frames-windows/defult4-window3.html", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 68
- testRunner.And("I verify url in 3 window is https://www.way2automation.com/way2auto_jquery/frames" +
-                        "-windows/defult4-window3.html", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I click in third opened instance window on Open Window-3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 69
- testRunner.When("I click in 3 window on Open Window-3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("I verify text in second instance of third browser window is Open Window-3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 70
- testRunner.Then("I verify new window 33 is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("I verify url in second instance of third browser window is https://www.way2automa" +
+                        "tion.com/way2auto_jquery/frames-windows/defult4-window3.html#", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 71
- testRunner.And("I verify text in 33 window is Open Window-3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 72
- testRunner.And("I verify url in 33 window is https://www.way2automation.com/way2auto_jquery/frame" +
-                        "s-windows/defult4-window3.html#", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 73
  testRunner.When("I close all opened windows", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 74
+#line 72
  testRunner.Then("I verify home page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -340,7 +334,7 @@ this.FeatureBackground();
                     "smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4. Verify window 1 functionality", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 77
+#line 75
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -353,48 +347,45 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 78
+#line 76
  testRunner.When("I click on Open Multiple Windows tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 79
+#line 77
  testRunner.And("I get text from Open Multiple Windows frame", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 80
+#line 78
  testRunner.Then("I verify text from frame is equal to Open multiple pages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 81
+#line 79
  testRunner.When("I click on Open Multiple Pages in Frame", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 82
+#line 80
  testRunner.Then("I verify new windows are opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 81
+ testRunner.And("I close all windows which are not first opened instance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 82
+ testRunner.And("I verify text in first opened instance window is Open Window-1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
 #line 83
- testRunner.And("I close all windows which are not 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I verify url in first opened instance window is https://www.way2automation.com/wa" +
+                        "y2auto_jquery/frames-windows/defult4-window1.html", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 84
- testRunner.And("I verify text in 1 window is Open Window-1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I click in first opened instance window on Open Window-1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 85
- testRunner.And("I verify url in 1 window is https://www.way2automation.com/way2auto_jquery/frames" +
-                        "-windows/defult4-window1.html", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("I verify text in second instance of first browser window is Open Window-1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 86
- testRunner.When("I click in 1 window on Open Window-1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("I verify url in second instance of first browser window is https://www.way2automa" +
+                        "tion.com/way2auto_jquery/frames-windows/defult4-window1.html#", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 87
- testRunner.Then("I verify new window 11 is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 88
- testRunner.And("I verify text in 11 window is Open Window-1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 89
- testRunner.And("I verify url in 11 window is https://www.way2automation.com/way2auto_jquery/frame" +
-                        "s-windows/defult4-window1.html#", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 90
  testRunner.When("I close all opened windows", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 91
+#line 88
  testRunner.Then("I verify home page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

@@ -173,11 +173,10 @@ this.FeatureBackground();
  testRunner.When("I click on Frameset tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 27
- testRunner.When("I click on Open Frameset Window in Frame", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("I get text from Open Frameset Window frame", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 28
- testRunner.Then("I verify new tab is opened with url https://www.way2automation.com/way2auto_jquer" +
-                        "y/frames-windows/frameset.html", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I verify text from frame is equal to Open Frameset Window", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

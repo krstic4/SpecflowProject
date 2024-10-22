@@ -24,8 +24,8 @@ Scenario: 1. Verify whole functionality of frameset
 @smoke
 Scenario: 2. Verify text in frame from Frameset tab
 	When I click on Frameset tab
-	When I click on Open Frameset Window in Frame
-	Then I verify new tab is opened with url https://www.way2automation.com/way2auto_jquery/frames-windows/frameset.html
+	And I get text from Open Frameset Window frame
+	Then I verify text from frame is equal to Open Frameset Window
 
 @smoke
 Scenario: 3. Verify titles and contents inside frame from new Frame tab

@@ -25,36 +25,38 @@ public class MultipleWindowsPage
         var allPages = new List<IPage>(_page.Context.Pages);
         foreach (var window in allPages)
         {
-            if (_scenarioContext.ContainsKey($"Page{windowCount}")) _scenarioContext.Remove($"Page{windowCount}");
-            _scenarioContext[$"Page{windowCount}"] = window;
-            var windowOpened = (IPage)_scenarioContext[$"Page{windowCount}"];
+            if (_scenarioContext.ContainsKey($"Page:{window.Url}")) _scenarioContext.Remove($"Page:{window.Url}");
+            _scenarioContext.Add($"Page:{window.Url}", window);
             _scenarioContext["NumberOfOpenedWindows"] = windowCount;
             windowCount++;
         }
     }
 
-    public string ReturnWindowUrlBasedOnIndex(int index)
+    public string ReturnWindowUrlBasedOnIndex(string index)
     {
         var url = string.Empty;
         switch(index)
         {
-            case 1:
+            case "first opened instance":
                 url = "https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window1.html";
                 break;
-            case 11:
+            case "second instance of first browser":
                 url = "https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window1.html#";
                 break;
-            case 2:
+            case "second opened instance":
                 url = "https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window2.html";
                 break;
-            case 22:
+            case "second instance of second browser":
                 url = "https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window2.html#";
                 break;
-            case 3:
+            case "third opened instance":
                 url = "https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window3.html";
                 break;
-            case 33:
+            case "second instance of third browser":
                 url = "https://www.way2automation.com/way2auto_jquery/frames-windows/defult4-window3.html#";
+                break;
+            case "baseUrl":
+                url = "https://www.way2automation.com/way2auto_jquery/frames-and-windows.php#load_box";
                 break;
             default:
                 throw new NotImplementedException($"Index: {index} was not found in switch case options while trying to get window url!");
@@ -62,7 +64,7 @@ public class MultipleWindowsPage
         return url;
     }
 
-    public async Task CloseDesiredWindow(int desiredWindow)
+    public async Task CloseDesiredWindow(string desiredWindow)
     {
         var pageUrl = ReturnWindowUrlBasedOnIndex(desiredWindow);
         var pageUrl2 = ReturnWindowUrlBasedOnIndex(desiredWindow) + "#";
@@ -75,7 +77,7 @@ public class MultipleWindowsPage
         }
     }
 
-    public async Task<IPage> GetPageForWindow(int desiredWindow)
+    public async Task<IPage> GetPageForWindow(string desiredWindow)
     {
         var pageUrl = ReturnWindowUrlBasedOnIndex(desiredWindow);
         await Task.Delay(1000);
@@ -87,30 +89,28 @@ public class MultipleWindowsPage
         return null;
     }
 
-    public async Task CloseAllWindowsExcept(int openWindow)
+    public async Task CloseAllWindowsExcept(string openWindow)
     {
         var windowCount = 0;
+        var pageUrl = ReturnWindowUrlBasedOnIndex(openWindow);
+        var baseUrl = ReturnWindowUrlBasedOnIndex("baseUrl");
         await Task.Delay(1000);
         var allPages = new List<IPage>(_page.Context.Pages);
         foreach (var window in allPages)
         {
-            var windowOpened = (IPage)_scenarioContext[$"Page{windowCount}"];
-            if (windowCount != openWindow && windowCount != 0) await windowOpened.CloseAsync();
+            if (!window.Url.Equals(pageUrl) && !window.Url.Equals(baseUrl)) await window.CloseAsync();
             windowCount++;
         }
     }
 
     public async Task CloseAllWindows()
     {
-        var windowCount = 0;
+        var pageUrl = ReturnWindowUrlBasedOnIndex("baseUrl");
         await Task.Delay(1000);
         var allPages = new List<IPage>(_page.Context.Pages);
         foreach (var window in allPages)
         {
-            _scenarioContext["Page" + windowCount] = window;
-            var windowOpened = (IPage)_scenarioContext[$"Page{windowCount}"];
-            if (windowCount != 0) await windowOpened.CloseAsync();
-            windowCount++;
+            if (!window.Url.Equals(pageUrl)) await window.CloseAsync();
         }
     }
 

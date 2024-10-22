@@ -72,7 +72,16 @@ public class HomePage
     public async Task<string> GetTextFromFrame(string tabName)
     {
         var frameLocator = GetFrameLocatorByTabName(tabName);
-        var text = await frameLocator.Locator("//a").InnerTextAsync();
+        var text = string.Empty;
+        try
+        {
+            text = await frameLocator.Locator("//a").InnerTextAsync();
+        }
+        catch (PlaywrightException e)
+        {
+            Console.WriteLine($"Could not take text from locator: '{frameLocator.Locator("//a")}'! Exception message: '{e.Message}'");
+            throw;
+        }
         text.ToString();
         return text;
     }
