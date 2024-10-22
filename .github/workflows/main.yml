@@ -152,7 +152,7 @@ jobs:
             cp -r history docs/  
             cp -r data docs/         
             cp -r favicon.ico docs/  
-            cp -r app docs/          
+            cp -r app.js docs/          
             cp -r styles.css docs/    
 
       - name: Deploy to GitHub Pages
