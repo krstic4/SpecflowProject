@@ -34,26 +34,35 @@ namespace SpecFlowProject1.Steps
             await MultipleWindowsPage.CloseAllWindowsExcept(window);
         }
 
+        [Then(@"I close all window (.*) opened")]
+        public async Task ThenICloseAllWindowOpened(int windowOpened)
+        {
+            await MultipleWindowsPage.CloseDesiredWindow(windowOpened);
+        }
+
 
         [Then(@"I verify text in (.*) window is (.*)")]
         public async Task ThenIVerifyTextInWindowIsOpenWindow(int window, string expectedText)
         {
-            NewWindow = (IPage)_scenarioContext[$"Page{window}"];
+
+            NewWindow = await MultipleWindowsPage.GetPageForWindow(window);
+            //NewWindow = (IPage)_scenarioContext[$"Page{window}"];
             var actualText = await MultipleWindowsPage.GetTextFromWindow(NewWindow);
             CommonFunctions.StringVerification(expectedText, actualText);
         }
 
         [When(@"I click in (.*) window on (.*)")]
-        public async void WhenIClickInWindowOn(int window, string text)
+        public async Task WhenIClickInWindowOn(int window, string text)
         {
-            NewWindow = (IPage)_scenarioContext[$"Page{window}"];
+            NewWindow = await MultipleWindowsPage.GetPageForWindow(window);
+            //NewWindow = (IPage)_scenarioContext[$"Page{window}"];
             await MultipleWindowsPage.ClickOnTextInWindow(NewWindow);
         }
 
         [Then(@"I verify new window (.*) is opened")]
         public async Task ThenIVerifyNewWindowIsOpened(int window)
         {
-            NewWindow = (IPage)_scenarioContext[$"Page{window}"];
+            NewWindow = await MultipleWindowsPage.GetPageForWindow(window);
             await NewWindow.WaitForLoadStateAsync();
         }
 
@@ -66,9 +75,10 @@ namespace SpecFlowProject1.Steps
 
 
         [Then(@"I verify url in (.*) window is (.*)")]
-        public void ThenIVerifyUrlInWindowIs(int window, string expectedUrl)
+        public async Task ThenIVerifyUrlInWindowIs(int window, string expectedUrl)
         {
-            NewWindow = (IPage)_scenarioContext[$"Page{window}"];
+            NewWindow = await MultipleWindowsPage.GetPageForWindow(window);
+            //NewWindow = (IPage)_scenarioContext[$"Page{window}"];
             var actualUrl = MultipleWindowsPage.GetUrlFromWindow(NewWindow);
             CommonFunctions.StringVerification(expectedUrl, actualUrl);
         }
