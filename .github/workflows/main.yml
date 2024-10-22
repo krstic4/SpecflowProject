@@ -68,14 +68,13 @@ jobs:
           
       - name: Set Test Tag
         id: setTag
-        shell: pwsh  
+        shell: pwsh  # Specify the shell as PowerShell
         run: |
           if ($env:GITHUB_EVENT_NAME -eq "push") {
             echo "testTag=all" >> $env:GITHUB_ENV
           } else {
             echo "testTag=${{ github.event.inputs.testTag }}" >> $env:GITHUB_ENV
           }
-
       - name: Run Automation tests
         run: dotnet test --filter "TestCategory=${{ env.testTag }}" --logger "trx;LogFileName=TestResults.trx"
         continue-on-error: true
@@ -118,48 +117,11 @@ jobs:
         run: |
           dotnet tool install --global trx2junit
           trx2junit D:\a\SpecflowProject\SpecflowProject\TestResults.trx --output D:\a\SpecflowProject\SpecflowProject\TestResults.xml
-
       - name: Generate Allure Report
         run: |
           allure generate --clean -o allure-results D:\a\SpecflowProject\SpecflowProject\TestResults.xml
-
       - name: Upload Allure Report as Artifact
         uses: actions/upload-artifact@v3
         with:
           name: allure-report
           path: allure-results/**
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: report
-    if: always()
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Download Allure Report Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: allure-report
-
-      - name: Copy Allure Report to root
-        run: |
-            cp -r index.html ./  
-            cp -r export ./       
-            cp -r plugin ./       
-            cp -r widgets ./      
-            cp -r history ./  
-            cp -r data ./         
-            cp -r favicon.ico ./  
-            cp -r app.js ./          
-            cp -r styles.css ./   
-
-      - name: Create .nojekyll file
-        run: touch .nojekyll
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .  
-          publish_branch: gh-pages
