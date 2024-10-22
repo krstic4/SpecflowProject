@@ -153,7 +153,10 @@ jobs:
             cp -r data docs/         
             cp -r favicon.ico docs/  
             cp -r app.js docs/          
-            cp -r styles.css docs/    
+            cp -r styles.css docs/   
+            
+      - name: Create .nojekyll file
+        run: touch docs/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
