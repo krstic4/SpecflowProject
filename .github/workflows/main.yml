@@ -142,8 +142,14 @@ jobs:
         with:
           name: allure-report
 
+      - name: List directory contents
+        run: ls -R /home/runner/work/SpecflowProject/SpecflowProject
+
       - name: List Allure Report Artifact
-        run: ls -R allure-report 
+        run: ls -R 
+
+      - name: List Allure Report Artifact
+        run: ls -R allure-results
 
       - name: Copy Allure Report to docs
         run: |
