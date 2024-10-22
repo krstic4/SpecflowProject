@@ -142,25 +142,24 @@ jobs:
         with:
           name: allure-report
 
-      - name: Copy Allure Report to docs
+      - name: Copy Allure Report to root
         run: |
-            mkdir -p docs
-            cp -r index.html docs/  
-            cp -r export docs/       
-            cp -r plugin docs/       
-            cp -r widgets docs/      
-            cp -r history docs/  
-            cp -r data docs/         
-            cp -r favicon.ico docs/  
-            cp -r app.js docs/          
-            cp -r styles.css docs/   
-            
+            cp -r index.html ./  
+            cp -r export ./       
+            cp -r plugin ./       
+            cp -r widgets ./      
+            cp -r history ./  
+            cp -r data ./         
+            cp -r favicon.ico ./  
+            cp -r app.js ./          
+            cp -r styles.css ./   
+
       - name: Create .nojekyll file
-        run: touch docs/.nojekyll
+        run: touch .nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs  
+          publish_dir: .  
           publish_branch: gh-pages
