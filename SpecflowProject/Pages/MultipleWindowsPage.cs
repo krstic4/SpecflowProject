@@ -1,5 +1,6 @@
 using Microsoft.Playwright;
 using NUnit.Framework;
+using SpecflowProject.Pages;
 using SpecFlowProject1.Drivers;
 using TechTalk.SpecFlow;
 using static System.Net.WebRequestMethods;
@@ -17,11 +18,12 @@ public class MultipleWindowsPage
     }
 
     private ILocator NewWindowText(IPage page) => page.Locator("//div[@class='farme_window']//a");
+    private CommonFunctions CommonFunctions => new CommonFunctions(_page, _scenarioContext);
 
     public async Task GetAllWindowsOpened()
     {
         var windowCount = 0;
-        await Task.Delay(1000);
+        await CommonFunctions.WaitForAllPagesToBeReadyAsync(_page);
         var allPages = new List<IPage>(_page.Context.Pages);
         foreach (var window in allPages)
         {
@@ -68,7 +70,7 @@ public class MultipleWindowsPage
     {
         var pageUrl = ReturnWindowUrlBasedOnIndex(desiredWindow);
         var pageUrl2 = ReturnWindowUrlBasedOnIndex(desiredWindow) + "#";
-        await Task.Delay(1000);
+        await CommonFunctions.WaitForAllPagesToBeReadyAsync(_page);
         var allPages = new List<IPage>(_page.Context.Pages);
         foreach(var window in allPages)
         {
@@ -80,7 +82,7 @@ public class MultipleWindowsPage
     public async Task<IPage> GetPageForWindow(string desiredWindow)
     {
         var pageUrl = ReturnWindowUrlBasedOnIndex(desiredWindow);
-        await Task.Delay(1000);
+        await CommonFunctions.WaitForAllPagesToBeReadyAsync(_page);
         var allPages = new List<IPage>(_page.Context.Pages);
         foreach (var window in allPages)
         {
@@ -94,7 +96,7 @@ public class MultipleWindowsPage
         var windowCount = 0;
         var pageUrl = ReturnWindowUrlBasedOnIndex(openWindow);
         var baseUrl = ReturnWindowUrlBasedOnIndex("baseUrl");
-        await Task.Delay(1000);
+        await CommonFunctions.WaitForAllPagesToBeReadyAsync(_page);
         var allPages = new List<IPage>(_page.Context.Pages);
         foreach (var window in allPages)
         {
@@ -106,7 +108,7 @@ public class MultipleWindowsPage
     public async Task CloseAllWindows()
     {
         var pageUrl = ReturnWindowUrlBasedOnIndex("baseUrl");
-        await Task.Delay(1000);
+        await CommonFunctions.WaitForAllPagesToBeReadyAsync(_page);
         var allPages = new List<IPage>(_page.Context.Pages);
         foreach (var window in allPages)
         {

@@ -1,4 +1,5 @@
-﻿Feature: ManualTests
+﻿@ignore
+Feature: ManualTests
 
 This feature contains all manual tests which should be automated / keep this up-to-date 
 

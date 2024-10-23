@@ -1,5 +1,6 @@
 using Microsoft.Playwright;
 using NUnit.Framework;
+using SpecflowProject.Pages;
 using SpecFlowProject1.Drivers;
 using TechTalk.SpecFlow;
 
@@ -18,6 +19,7 @@ public class HomePage
     private ILocator NavigationBar => _page.Locator("//ul[@class='responsive-tabs']//li//a");
     private IFrameLocator FrameLocator(string srcValue) => _page.FrameLocator($"//iframe[@src='{srcValue}']");
     private ILocator NavBar => _page.Locator("//div[@class='internal_navi']");
+    private CommonFunctions CommonFunctions => new CommonFunctions(_page, _scenarioContext);
 
     public async Task ClickNavigationBar(string text)
     {
@@ -104,7 +106,7 @@ public class HomePage
 
     public async Task<IPage> GetFocusOnTab(string url)
     {
-        await Task.Delay(2000);
+        await CommonFunctions.WaitForAllPagesToBeReadyAsync(_page);
         var pages = _page.Context.Pages;
         int index = -1;
        

@@ -208,50 +208,6 @@ this.FeatureBackground();
             }
             this.ScenarioCleanup();
         }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("4. Verify new window hyperlink opens new window [EXPECTED TO FAIL]")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
-        [NUnit.Framework.CategoryAttribute("smoke")]
-        public void _4_VerifyNewWindowHyperlinkOpensNewWindowEXPECTEDTOFAIL()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "smoke",
-                    "ignore"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4. Verify new window hyperlink opens new window [EXPECTED TO FAIL]", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 34
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 6
-this.FeatureBackground();
-#line hidden
-#line 35
- testRunner.When("I click on Open Seprate New Window tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 36
- testRunner.When("I click on Open New Seprate Window in Frame", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 37
- testRunner.Then("I verify new window is opened via url https://www.way2automation.com/way2auto_jqu" +
-                        "ery/frames-windows/defult2.html#", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 38
- testRunner.And("I verify Open New Seprate Window is displayed in new window", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 39
- testRunner.Then("I click on Open New Seprate Window in Frame", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
     }
 }
 #pragma warning restore
