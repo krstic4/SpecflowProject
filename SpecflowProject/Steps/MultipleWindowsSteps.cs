@@ -15,7 +15,7 @@ namespace SpecFlowProject1.Steps
         private readonly ScenarioContext _scenarioContext;
         private MultipleWindowsPage MultipleWindowsPage => new MultipleWindowsPage(_driver.Page, _scenarioContext);
         private CommonFunctions CommonFunctions => new CommonFunctions(_driver.Page, _scenarioContext);
-        private IPage NewWindow;
+        private IPage? NewWindow;
         public MultipleWindowsSteps(ScenarioContext scenarioContext) 
         {
             _scenarioContext = scenarioContext;

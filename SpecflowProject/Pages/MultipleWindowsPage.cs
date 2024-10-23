@@ -22,8 +22,8 @@ public class MultipleWindowsPage
 
     public async Task GetAllWindowsOpened()
     {
-        var windowCount = 0;
         await CommonFunctions.WaitForAllPagesToBeReadyAsync(_page);
+        var windowCount = 0;
         var allPages = new List<IPage>(_page.Context.Pages);
         foreach (var window in allPages)
         {
@@ -68,9 +68,9 @@ public class MultipleWindowsPage
 
     public async Task CloseDesiredWindow(string desiredWindow)
     {
+        await CommonFunctions.WaitForAllPagesToBeReadyAsync(_page);
         var pageUrl = ReturnWindowUrlBasedOnIndex(desiredWindow);
         var pageUrl2 = ReturnWindowUrlBasedOnIndex(desiredWindow) + "#";
-        await CommonFunctions.WaitForAllPagesToBeReadyAsync(_page);
         var allPages = new List<IPage>(_page.Context.Pages);
         foreach(var window in allPages)
         {
@@ -81,8 +81,8 @@ public class MultipleWindowsPage
 
     public async Task<IPage> GetPageForWindow(string desiredWindow)
     {
-        var pageUrl = ReturnWindowUrlBasedOnIndex(desiredWindow);
         await CommonFunctions.WaitForAllPagesToBeReadyAsync(_page);
+        var pageUrl = ReturnWindowUrlBasedOnIndex(desiredWindow);
         var allPages = new List<IPage>(_page.Context.Pages);
         foreach (var window in allPages)
         {
@@ -93,22 +93,24 @@ public class MultipleWindowsPage
 
     public async Task CloseAllWindowsExcept(string openWindow)
     {
+        await CommonFunctions.WaitForAllPagesToBeReadyAsync(_page);
         var windowCount = 0;
         var pageUrl = ReturnWindowUrlBasedOnIndex(openWindow);
         var baseUrl = ReturnWindowUrlBasedOnIndex("baseUrl");
-        await CommonFunctions.WaitForAllPagesToBeReadyAsync(_page);
         var allPages = new List<IPage>(_page.Context.Pages);
         foreach (var window in allPages)
         {
-            if (!window.Url.Equals(pageUrl) && !window.Url.Equals(baseUrl)) await window.CloseAsync();
+            await Task.Delay(100);
+            var windowUrl = window.Url;
+            if (!windowUrl.Equals(pageUrl) && !windowUrl.Equals(baseUrl)) await window.CloseAsync();
             windowCount++;
         }
     }
 
     public async Task CloseAllWindows()
     {
-        var pageUrl = ReturnWindowUrlBasedOnIndex("baseUrl");
         await CommonFunctions.WaitForAllPagesToBeReadyAsync(_page);
+        var pageUrl = ReturnWindowUrlBasedOnIndex("baseUrl");
         var allPages = new List<IPage>(_page.Context.Pages);
         foreach (var window in allPages)
         {
