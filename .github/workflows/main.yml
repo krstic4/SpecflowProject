@@ -117,21 +117,44 @@ jobs:
         run: |
           dotnet tool install --global trx2junit
           trx2junit D:\a\SpecflowProject\SpecflowProject\TestResults.trx --output D:\a\SpecflowProject\SpecflowProject\TestResults.xml
+
       - name: Generate Allure Report
         run: |
           allure generate --clean -o allure-results D:\a\SpecflowProject\SpecflowProject\TestResults.xml
+
       - name: Upload Allure Report as Artifact
         uses: actions/upload-artifact@v3
         with:
           name: allure-report
           path: allure-results/**
+
+  deploy:
+    runs-on: ubuntu-latest  # Adjust as needed
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+
+      - name: Download Allure Report Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: allure-report
           
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Setup Pages
         uses: actions/configure-pages@v2
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: allure-results/
-      - name: Deploy to github pages
-        id: deployment
+
+      - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
+        with:
+          emit_telemetry: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifact_name: github-pages
+          preview: false
