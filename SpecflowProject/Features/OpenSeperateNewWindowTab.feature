@@ -29,11 +29,3 @@ Scenario: 3. Verify new window is opened after click on text in frame
 	When I click on Open New Seprate Window in Frame
 	Then I verify new window is opened via url https://www.way2automation.com/way2auto_jquery/frames-windows/defult2.html#
 	And I verify Open New Seprate Window is displayed in new window
-
-@smoke @ignore
-Scenario: 4. Verify new window hyperlink opens new window [EXPECTED TO FAIL]
-	When I click on Open Seprate New Window tab
-	When I click on Open New Seprate Window in Frame
-	Then I verify new window is opened via url https://www.way2automation.com/way2auto_jquery/frames-windows/defult2.html#
-	And I verify Open New Seprate Window is displayed in new window
-	Then I click on Open New Seprate Window in Frame
