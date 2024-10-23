@@ -129,7 +129,9 @@ jobs:
           path: allure-results/**
 
   deploy:
-    runs-on: ubuntu-latest  # Adjust as needed
+    runs-on: windows-latest
+    needs: report
+    if: always()
     permissions:
       id-token: write
       contents: write
