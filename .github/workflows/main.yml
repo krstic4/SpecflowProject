@@ -125,3 +125,13 @@ jobs:
         with:
           name: allure-report
           path: allure-results/**
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: allure-results/**
+      - name: Deploy to github pages
+        id: deployment
+        uses: actions/deploy-pages@v1
