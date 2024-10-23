@@ -94,6 +94,9 @@ jobs:
     runs-on: windows-latest
     needs: test
     if: always()
+    permissions:
+      id-token: write
+      contents: write
     steps:
       - name: Download Build Artifacts
         uses: actions/download-artifact@v3
@@ -127,23 +130,6 @@ jobs:
         with:
           name: allure-report
           path: allure-results/**
-
-  deploy:
-    runs-on: windows-latest
-    needs: report
-    if: always()
-    permissions:
-      id-token: write
-      contents: write
-    steps:
-
-      - name: Download Allure Report Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: allure-report
-          
-      - name: Checkout code
-        uses: actions/checkout@v2
 
       - name: Setup Pages
         uses: actions/configure-pages@v2
